@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Серверный Монитор</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=1.1">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="icon icon-server"></span> Мой Серверный Монитор</h1>
+        
+        <div class="cards">
+            <!-- Процессор -->
+            <div class="card cpu">
+                <h3><span class="icon icon-cpu"></span> Процессор (CPU)</h3>
+                <div class="value" id="cpu">0%</div>
+                <div class="progress">
+                    <div class="progress-bar" id="cpu-bar" style="width: 0%"></div>
+                </div>
+                <p>Текущая загрузка процессора</p>
+            </div>
+            
+            <!-- Оперативная память -->
+            <div class="card ram">
+                <h3><span class="icon icon-ram"></span> Оперативная память (RAM)</h3>
+                <div class="value" id="ram">0%</div>
+                <div class="progress">
+                    <div class="progress-bar" id="ram-bar" style="width: 0%"></div>
+                </div>
+                <p>Использование оперативной памяти</p>
+            </div>
+            
+            <!-- Диск -->
+            <div class="card disk">
+                <h3><span class="icon icon-disk"></span> Диск (C:)</h3>
+                <div class="value" id="disk">0%</div>
+                <div class="progress">
+                    <div class="progress-bar" id="disk-bar" style="width: 0%"></div>
+                </div>
+                <p>Заполнение системного диска</p>
+            </div>
+            
+            <!-- КАРТОЧКА 1: Активное сетевое подключение -->
+            <div class="card wifi">
+                <h3><span class="icon icon-wifi">📡</span> Сетевое подключение</h3>
+                
+                <div class="connection-header">
+                    <div class="connection-type" id="connection-type">Загрузка...</div>
+                    <div class="connection-status" id="connection-status">Загрузка...</div>
+                </div>
+                
+                <div class="value">
+                    <span id="wifi-signal-main">0</span>%
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="wifi-bar-main" style="width: 0%"></div>
+                </div>
+                
+                <div class="network-info">
+                    <p><strong>Сеть:</strong> <span id="wifi-network-main">Загрузка...</span></p>
+                    <p><strong>IP адрес:</strong> <span id="wifi-ip-main">Загрузка...</span></p>
+                    <p><strong>Канал:</strong> <span id="wifi-channel-main">Загрузка...</span></p>
+                </div>
+                
+            </div>
+            
+            <!-- КАРТОЧКА 2: Детали сети -->
+            <div class="card network-details">
+                <h3><span class="icon icon-network">🔧</span> Детали сети</h3>
+                
+                <div class="network-details-info">
+                    <div class="detail-row">
+                        <span class="detail-label">Интерфейс:</span>
+                        <span class="detail-value" id="interface-name">Загрузка...</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Скорость:</span>
+                        <span class="detail-value" id="network-speed">Загрузка...</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">MAC адрес:</span>
+                        <span class="detail-value mac-address" id="mac-address">00:00:00:00:00</span>
+                    </div>
+                    
+                    <div class="traffic-stats">
+                        <div class="traffic-item">
+                            <span class="traffic-icon">📤</span>
+                            <span class="traffic-label">Отправлено:</span>
+                            <span class="traffic-value" id="bytes-sent">0 B</span>
+                        </div>
+                        
+                        <div class="traffic-item">
+                            <span class="traffic-icon">📥</span>
+                            <span class="traffic-label">Получено:</span>
+                            <span class="traffic-value" id="bytes-recv">0 B</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Информация о системе -->
+        <div class="card">
+            <h3><span class="icon icon-info"></span> Информация о системе</h3>
+            <div class="info">
+                <p><strong>Система:</strong> <span id="system">Загрузка...</span></p>
+                <p><strong>Время работы:</strong> <span id="uptime">Загрузка...</span></p>
+                <p><strong>Последнее обновление:</strong> <span id="time">--:--:--</span></p>
+            </div>
+        </div>
+        
+        <!-- Активные процессы -->
+        <div class="card processes">
+            <h3><span class="icon icon-list"></span> Самые активные процессы</h3>
+            <table id="process-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя процесса</th>
+                        <th>CPU %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Заполнится JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Время обновления -->
+        <div class="update-time">
+            <span class="icon-sync"></span> Данные обновляются автоматически каждые 2 секунды
+            <br>
+            <span id="last-update">Последнее обновление: --:--:--</span>
+        </div>
+    </div>
+    <script src="/static/js/app-v2.js?v=1.1"></script>
+</body>
+</html>
